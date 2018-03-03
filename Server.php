@@ -14,6 +14,17 @@ class Server
         $this->_soapServer->configureWSDL("Example WSDL");
 
         $this->_soapServer->register(
+            "Service.postScorm",
+            array('data' => "xsd:Array"),
+            array("return" => "xsd:Array"),
+            false,
+            false,
+            "rpc",
+            "encoded",
+            "Servicio que retorna un string"
+        );
+
+        $this->_soapServer->register(
             'Service.getUsers', // method name
             array(), // input parameters
             array('return' => 'xsd:Array'), // output parameters
